@@ -1,0 +1,38 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+
+}
+.our_popular_services{
+    border-bottom: 3px solid rgb(156, 153, 153);
+    padding-bottom:10px ;
+}
+.our_popular_services_grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.what_our_clients_are_saying{
+    border-bottom: 3px solid rgb(156, 153, 153);
+    padding-bottom:10px ;
+}
+.what_our_clients_are_saying_grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+@media only screen and (max-width: 600px){
+
+}
+@media only screen and (max-width: 500px){
+    .our_popular_services_grid{
+        grid-template-columns: auto;
+    }
+    .what_our_clients_are_saying_grid{
+        grid-template-columns: auto;
+    }
+
+}
