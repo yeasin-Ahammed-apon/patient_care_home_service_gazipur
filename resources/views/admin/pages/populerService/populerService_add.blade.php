@@ -11,7 +11,7 @@
 
             <form action="{{ route('populer_service_create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group col-12 col-sm-6">
+                <div class="form-group col-12 col-sm-12">
                     <label>Select</label>
                     <select class="form-control" name="service_id">
                         @foreach ($datas as $data)
