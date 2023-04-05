@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PopulerServiceController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -58,7 +60,22 @@ Route::middleware(['admin','revalidate'])->group(function () {
     Route::get('/admin/populer_service/edit/{id}', [PopulerServiceController::class,'populer_service_edit'])->name('populer_service_edit');
     Route::post('/admin/populer_service/update', [PopulerServiceController::class,'populer_service_update'])->name('populer_service_update');
     Route::get('/admin/populer_service/delete/{id}', [PopulerServiceController::class,'populer_service_delete'])->name('populer_service_delete');
-
+    // slider route
+    Route::get('/admin/slider/list', [SliderController::class,'slider_list'])->name('slider_list');
+    Route::get('/admin/slider/view/{id}', [SliderController::class,'slider_view'])->name('slider_view');
+    Route::get('/admin/slider/add', [SliderController::class,'slider_add'])->name('slider_add');
+    Route::post('/admin/slider/create', [SliderController::class,'slider_create'])->name('slider_create');
+    Route::get('/admin/slider/edit/{id}', [SliderController::class,'slider_edit'])->name('slider_edit');
+    Route::post('/admin/slider/update', [SliderController::class,'slider_update'])->name('slider_update');
+    Route::get('/admin/slider/delete/{id}', [SliderController::class,'slider_delete'])->name('slider_delete');
+    // feedback route
+    Route::get('/admin/feedback/list', [FeedbackController::class,'feedback_list'])->name('feedback_list');
+    Route::get('/admin/feedback/view/{id}', [FeedbackController::class,'feedback_view'])->name('feedback_view');
+    Route::get('/admin/feedback/add', [FeedbackController::class,'feedback_add'])->name('feedback_add');
+    Route::post('/admin/feedback/create', [FeedbackController::class,'feedback_create'])->name('feedback_create');
+    Route::get('/admin/feedback/edit/{id}', [FeedbackController::class,'feedback_edit'])->name('feedback_edit');
+    Route::post('/admin/feedback/update', [FeedbackController::class,'feedback_update'])->name('feedback_update');
+    Route::get('/admin/feedback/delete/{id}', [FeedbackController::class,'feedback_delete'])->name('feedback_delete');
 
 
     Route::get('/admin/logout', [AdminController::class,'logout'])->name('logout');
