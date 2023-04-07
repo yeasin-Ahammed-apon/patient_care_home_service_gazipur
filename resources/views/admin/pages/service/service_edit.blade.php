@@ -22,6 +22,15 @@
                     </div>
                     <div class="form-group col-12 col-sm-12">
                         <label>Description</label>
+                        <textarea class="form-control"  name="short_description"  rows="3">
+                            {{ $data->short_description }}
+                        </textarea>
+                        @error('short_description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-12 col-sm-12">
+                        <label>Description</label>
                         <textarea class="form-control"  name="description" id="summernote" rows="3">
                             {{ $data->description }}
                         </textarea>

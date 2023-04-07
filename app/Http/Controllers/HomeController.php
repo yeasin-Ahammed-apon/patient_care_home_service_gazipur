@@ -2,21 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Message;
+use App\Models\PopulerService;
 use App\Models\Service;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public $data = null;
     public function home(){
-        return view('user.pages.home');
+        $PopulerServices = PopulerService::with('service')->get();
+        $feedbacks = Feedback::all();
+        $sliders = Slider::all();
+        return view('user.pages.home',[
+            'feedbacks'=>$feedbacks,
+            'PopulerServices'=>$PopulerServices,
+            'sliders'=>$sliders
+        ]);
     }
     public function our_services(){
-        $this->data = Service::all();
+        $this->data = Service::paginate(9);
         return view('user.pages.our_services',[
             "datas" => $this->data
         ]);
     }
+
 
     public function service($url){
         $this->data = Service::where('url', '=', $url)->first();
@@ -44,6 +55,7 @@ class HomeController extends Controller
             session(['role' => '1']);
             return redirect()->route('dashboard');
         }
+        return redirect()->back();
         //normal user check and get pass
 
     }

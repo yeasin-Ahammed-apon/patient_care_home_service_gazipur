@@ -3,8 +3,15 @@
     Home
 @endsection
 @section('content')
+<style>
+    *{
+        padding: 0%;
+        margin: 0%
+    }
+</style>
     {{-- carousel --}}
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    {{-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -47,61 +54,49 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div> --}}
+    <div id="slider" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @foreach ($sliders as $slide)
+            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                <img src="{{ asset('admin/uploads/images/'.$slide->image) }}" alt="{{ $slide->title }}" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ $slide->title }}</h5>
+                    <p>{{ $slide->description }}</p>
+                </div>
+            </div>
+        @endforeach
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
     {{-- OUR POPULAR SERVICES --}}
     <h1 class="text-center mt-5 our_popular_services">
         OUR POPULAR SERVICES
     </h1>
     <div class="container-fluid">
-        <div class="our_popular_services_grid">
+        <div class="row">
             {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://img.freepik.com/free-photo/ordinary-busy-day-surgeon_329181-19717.jpg"
-                    class="card-img-top" alt="...">
+            @foreach ($PopulerServices as $PopulerService )
+          <div class="col-12 col-sm-4">
+            <div class="card m-4 shadow ">
+                <img src="{{ asset('admin/uploads/images/'.$PopulerService['service']->image) }}"
+                    class="card-img-top" alt="{{ $PopulerService['service']->title }}">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">{{ $PopulerService['service']->title }}</h5>
+                    <p class="card-text text-truncate">{{ $PopulerService['service']->short_description }}</p>
+                    <a href="/{{ $PopulerService['service']->url }}" class="btn btn-primary">Read More</a>
                 </div>
             </div>
-            {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://img.freepik.com/free-photo/ordinary-busy-day-surgeon_329181-19717.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://img.freepik.com/free-photo/ordinary-busy-day-surgeon_329181-19717.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://img.freepik.com/free-photo/ordinary-busy-day-surgeon_329181-19717.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+          </div>
+            @endforeach
         </div>
     </div>
     {{-- WORK WITH US --}}
@@ -169,57 +164,25 @@
         WHAT OUR CLIENTS ARE SAYING
     </h1>
     <div class="container-fluid">
-        <div class="what_our_clients_are_saying_grid">
+        <div class="row">
             {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mr. asxasdas xasxasx sxass</h5>
-                    <p class="card-text">
-                    <h3 class="d-inline text-warning">"</h3>Some quick example text to build on the card title and make up
-                    the bulk of the card's
-                    content.<h3 class="d-inline text-warning">"</h3>
-                    </p>
+            @foreach ($feedbacks as $feedback)
+            <div  class="col-12 col-sm-3">
+                <div class="card m-4 shadow">
+                    <img src="https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg"
+                        class="card-img-top" alt="client feed back">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $feedback->name }}</h5>
+                        <p class="card-text">
+                        <h3 class="d-inline text-warning">"</h3>
+                        {{ $feedback->feedback }}
+                        <h3 class="d-inline text-warning">"</h3>
+                        </p>
 
+                    </div>
                 </div>
             </div>
-            {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-
-                </div>
-            </div>
-            {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-
-                </div>
-            </div>
-            {{-- card 1 --}}
-            <div class="card m-4 shadow">
-                <img src="https://gcavocats.ca/wp-content/uploads/2018/09/man-avatar-icon-flat-vector-19152370-1.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

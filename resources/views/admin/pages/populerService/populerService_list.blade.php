@@ -14,7 +14,10 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Message Table</h3>
+                <h3 class="card-title">Popuper Service Table</h3>
+                <a class="btn btn-success float-right" href="{{ route('populer_service_add') }}" >
+                    + Add
+                </a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

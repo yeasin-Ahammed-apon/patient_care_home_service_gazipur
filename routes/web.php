@@ -31,6 +31,7 @@ function areActiveRoutes(array $routes, $output = "active")
 Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/contact-us', [HomeController::class,'contact_us'])->name('contact_us');
 Route::get('/our-services', [HomeController::class,'our_services'])->name('our_services');
+Route::get('/client_feedback', [HomeController::class,'client_feedback'])->name('client_feedback');
 Route::get('/{url}', [HomeController::class,'service'])->name('url');
 Route::post('/contact-us', [HomeController::class,'message'])->name('message');
 Route::get('/about-us', [HomeController::class,'about_us'])->name('about_us');

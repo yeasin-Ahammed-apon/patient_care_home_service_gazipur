@@ -46,8 +46,8 @@
     <script src="{{ asset('adminLteAssets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}" ></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('adminLteAssets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminLteAssets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/jszip/jszip.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/pdfmake/vfs_fonts.js') }}"></script>

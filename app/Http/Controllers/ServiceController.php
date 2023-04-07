@@ -30,6 +30,7 @@ class ServiceController extends Controller
 
         $validated = $request->validate([
             'title' => 'required',
+            'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
             'url' => 'required',
@@ -45,6 +46,7 @@ class ServiceController extends Controller
         $service = new Service();
         $service->title = $request->title;
         $service->description = $request->description;
+        $service->short_description = $request->short_description;
         $service->image = $imageName;
         $service->url = $request->url;
         $service->status = $request->status;
@@ -71,6 +73,7 @@ class ServiceController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
+            'short_description' => 'required',
             'description' => 'required',
             // 'image' => 'required',
             'url' => 'required',
@@ -80,6 +83,7 @@ class ServiceController extends Controller
         $id = $request->id;
         $service = Service::findOrFail($id);
         $service->title = $request->title;
+        $service->short_description = $request->short_description;
         $service->description = $request->description;
         $service->url = $request->url;
         $service->status = $request->status;

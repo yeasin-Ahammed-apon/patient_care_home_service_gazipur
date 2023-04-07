@@ -3,18 +3,13 @@
     Service List
 @endsection
 @section('content2')
-    <style>
-        .truncate {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 200px;
-        }
-    </style>
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Message Table</h3>
+                <h3 class="card-title">Service Table</h3>
+                <a class="btn btn-success float-right" href="{{ route('service_add') }}" >
+                    + Add
+                </a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -24,7 +19,7 @@
                           <th>ID</th>
                           <th>Image</th>
                           <th>Title</th>
-                          {{-- <th>Description</th> --}}
+                          <th>Short Description</th>
                           <th>Url</th>
                           <th>Status</th>
                           <th>Action</th>
@@ -38,8 +33,7 @@
                                 <img src="{{ asset("admin/uploads/images/".$data->image) }}" class="img-fluid" alt="{{ $data->image }}">
                             </td>
                             <td>{{ $data->title }}</td>
-                            {{-- <td class="text-truncate">{{ $data->description }}</td> --}}
-
+                            <td class="text-truncate">{{ $data->short_description }}</td>
                             <td>{{ $data->url }}</td>
                             <td> {{ $data->status }}</td>
                             <td>
