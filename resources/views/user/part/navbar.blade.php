@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://nochinta.xyz/static/media/no-chinta-logo.449037c5526d120cbd3959625cf9e7a9.svg"
-                width="200" alt="">
+            <img src="{{ asset('image/logo/text-in-crescent-9350ld.png') }}"
+                 height="50" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

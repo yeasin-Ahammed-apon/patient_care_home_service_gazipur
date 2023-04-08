@@ -27,7 +27,7 @@
                           <th>ID</th>
                           <th>Image</th>
                           <th>Title</th>
-                          <th>Description</th>
+                          <th>Short Description</th>
                           <th>Url</th>
                           <th>Status</th>
                           <th>Action</th>
@@ -41,7 +41,7 @@
                                 <img src="{{ asset("admin/uploads/images/".$data['service']->image) }}" class="img-fluid" alt="{{ $data['service']->title }}">
                             </td>
                             <td>{{ $data['service']->title }}</td>
-                            <td class="text-truncate">{{ $data['service']->description }}</td>
+                            <td class="text-truncate">{{ $data['service']->short_description }}</td>
 
                             <td>{{ $data['service']->url }}</td>
                             <td> {{ $data['service']->status }}</td>

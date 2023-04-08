@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PageDataController;
 use App\Http\Controllers\PopulerServiceController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
@@ -30,11 +31,11 @@ function areActiveRoutes(array $routes, $output = "active")
 // all user interface
 Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/contact-us', [HomeController::class,'contact_us'])->name('contact_us');
+Route::get('/about-us', [HomeController::class,'about_us'])->name('about_us');
 Route::get('/our-services', [HomeController::class,'our_services'])->name('our_services');
 Route::get('/client_feedback', [HomeController::class,'client_feedback'])->name('client_feedback');
 Route::get('/{url}', [HomeController::class,'service'])->name('url');
 Route::post('/contact-us', [HomeController::class,'message'])->name('message');
-Route::get('/about-us', [HomeController::class,'about_us'])->name('about_us');
 Route::get('/admin/login', [HomeController::class,'login'])->name('login');
 Route::post('/admin/check', [HomeController::class,'check'])->name('check');
 Route::middleware(['admin','revalidate'])->group(function () {

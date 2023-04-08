@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS -->
     <link rel="stylesheet" href="{{ asset('adminLteAssets/plugins/sweetalert2/sweetalert2.min.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('adminLteAssets/plugins/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('adminLteAssets/dist/css/adminlte.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('adminLteAssets/dist/css/adminlte.min.css') }}">
     <link href="{{ asset('summer-note/summernote-bs4.min.css') }}" rel="stylesheet">
     <title>@yield('meta-tag')</title>
 </head>
@@ -27,7 +28,7 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                                 <li class="breadcrumb-item active">@yield('meta-tag')</li>
                             </ol>
                         </div>
@@ -38,12 +39,12 @@
         </div>
     </div>
     <script src="{{ asset('adminLteAssets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-    <script src="{{ asset('adminLteAssets/plugins/popper/umd/popper.min.js') }}" ></script>
+    <script src="{{ asset('adminLteAssets/plugins/popper/umd/popper.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('adminLteAssets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}" ></script>
+    <script src="{{ asset('adminLteAssets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('adminLteAssets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
@@ -66,7 +67,17 @@
         </script>
     @endif
     @yield('scripts')
+    <script>
+        function truncateText(selector, maxLength) {
+            var element = document.querySelector(selector);
+            var truncated = element.innerHTML;
 
+            if (truncated.length > maxLength) {
+                truncated = truncated.substr(0, maxLength) + '...';
+            }
+            element.innerHTML = truncated;
+        }
+    </script>
 </body>
 
 </html>

@@ -3,5 +3,9 @@
     profile
 @endsection
 @section('content2')
-Profile page
+<div class="container-fluid">
+    <h1 class="alert-danger">
+        under constrauction
+    </h1>
+</div>
 @endsection
